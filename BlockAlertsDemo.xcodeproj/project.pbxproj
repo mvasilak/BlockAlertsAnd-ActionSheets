@@ -47,6 +47,7 @@
 		ECFC5EFF14EB1DA4004BFD45 /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFC5EF914EB1DA4004BFD45 /* BlockAlertView.m */; };
 		ECFC5F0014EB1DA4004BFD45 /* BlockBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFC5EFB14EB1DA4004BFD45 /* BlockBackground.m */; };
 		ECFC5F0114EB1DA4004BFD45 /* BlockTextPromptAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFC5EFD14EB1DA4004BFD45 /* BlockTextPromptAlertView.m */; };
+		ECFC5F0114EB1DA4004BFD47 /* BlockAlertViewQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFC5F0114EB1DA4004BFD46 /* BlockAlertViewQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		ECFC5EFB14EB1DA4004BFD45 /* BlockBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockBackground.m; sourceTree = "<group>"; };
 		ECFC5EFC14EB1DA4004BFD45 /* BlockTextPromptAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTextPromptAlertView.h; sourceTree = "<group>"; };
 		ECFC5EFD14EB1DA4004BFD45 /* BlockTextPromptAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockTextPromptAlertView.m; sourceTree = "<group>"; };
+		ECFC5F0114EB1DA4004BFD46 /* BlockAlertViewQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertViewQueue.m; sourceTree = "<group>"; };
+		ECFC5F0114EB1DA4004BFD48 /* BlockAlertViewQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertViewQueue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 		ECFC5EF514EB1DA4004BFD45 /* ToAddToYourProjects */ = {
 			isa = PBXGroup;
 			children = (
+				ECFC5F0114EB1DA4004BFD48 /* BlockAlertViewQueue.h */,
+				ECFC5F0114EB1DA4004BFD46 /* BlockAlertViewQueue.m */,
 				ECFC5EF614EB1DA4004BFD45 /* BlockActionSheet.h */,
 				ECFC5EF714EB1DA4004BFD45 /* BlockActionSheet.m */,
 				ECFC5EF814EB1DA4004BFD45 /* BlockAlertView.h */,
@@ -342,6 +347,7 @@
 				ECFC5EFF14EB1DA4004BFD45 /* BlockAlertView.m in Sources */,
 				ECFC5F0014EB1DA4004BFD45 /* BlockBackground.m in Sources */,
 				ECFC5F0114EB1DA4004BFD45 /* BlockTextPromptAlertView.m in Sources */,
+				ECFC5F0114EB1DA4004BFD47 /* BlockAlertViewQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
