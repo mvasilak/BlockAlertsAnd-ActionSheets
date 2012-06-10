@@ -6,6 +6,7 @@
 #import "BlockAlertView.h"
 #import "BlockBackground.h"
 #import "BlockUI.h"
+#import "BlockAlertViewQueue.h"
 
 @implementation BlockAlertView
 
@@ -140,6 +141,9 @@ static UIFont *buttonFont = nil;
 
 - (void)show
 {
+    [BlockAlertViewQueue queueAndShow:self];
+
+
     BOOL isSecondButton = NO;
     NSUInteger index = 0;
     for (NSUInteger i = 0; i < _blocks.count; i++)

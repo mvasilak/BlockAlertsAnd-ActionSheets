@@ -6,6 +6,7 @@
 
 
 #import "BlockAlertViewQueue.h"
+#import "BlockAlertView.h"
 
 
 @implementation BlockAlertViewQueue {
@@ -23,6 +24,10 @@
     }
 
     return _instance;
+}
+
++ (void)queueAndShow:(BlockAlertView *)blockAlertView {
+
 }
 
 - (id)init {

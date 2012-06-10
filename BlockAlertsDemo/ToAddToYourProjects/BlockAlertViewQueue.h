@@ -14,4 +14,5 @@
 + (BlockAlertViewQueue *)instance;
 
 
++ (void)queueAndShow:(BlockAlertView *)blockAlertView;
 @end
