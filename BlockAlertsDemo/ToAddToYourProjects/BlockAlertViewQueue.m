@@ -11,5 +11,16 @@
 @implementation BlockAlertViewQueue {
 
 }
++ (BlockAlertViewQueue *)instance {
+    static BlockAlertViewQueue *_instance = nil;
+
+    @synchronized (self) {
+        if (_instance == nil) {
+            _instance = [[self alloc] init];
+        }
+    }
+
+    return _instance;
+}
 
 @end

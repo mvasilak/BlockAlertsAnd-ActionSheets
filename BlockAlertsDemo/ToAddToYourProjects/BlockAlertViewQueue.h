@@ -8,5 +8,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BlockAlertViewQueue : NSObject
+@interface BlockAlertViewQueue : NSObject {
+
+}
++ (BlockAlertViewQueue *)instance;
+
+
 @end
