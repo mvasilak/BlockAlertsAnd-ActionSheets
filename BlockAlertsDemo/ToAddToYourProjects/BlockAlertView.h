@@ -21,6 +21,7 @@
 - (void)addButtonWithTitle:(NSString *)title block:(void (^)())block;
 
 - (void)show;
+- (void)queueAndShow;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 
 @property (nonatomic, retain) UIImage *backgroundImage;

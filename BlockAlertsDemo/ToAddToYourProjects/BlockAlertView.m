@@ -293,6 +293,10 @@ static UIFont *buttonFont = nil;
     [self retain];
 }
 
+- (void)queueAndShow {
+
+}
+
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated 
 {
     if (buttonIndex >= 0 && buttonIndex < [_blocks count])
