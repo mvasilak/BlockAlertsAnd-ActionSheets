@@ -26,8 +26,9 @@
     return _instance;
 }
 
-+ (void)queueAndShow:(BlockAlertView *)blockAlertView {
-
+- (void)queueAndShow:(BlockAlertView *)blockAlertView {
+    [queuedAlerts addObject:blockAlertView];
+    [blockAlertView show];
 }
 
 - (id)init {

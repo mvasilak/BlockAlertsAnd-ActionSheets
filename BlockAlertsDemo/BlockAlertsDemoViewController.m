@@ -10,6 +10,7 @@
 #import "BlockAlertView.h"
 #import "BlockActionSheet.h"
 #import "BlockTextPromptAlertView.h"
+#import "BlockAlertViewQueue.h"
 
 @implementation BlockAlertsDemoViewController
 @synthesize testKeyboard;
@@ -97,6 +98,17 @@
         NSLog(@"Text: %@", textField.text);
     }];
     [alert show];
+}
+
+- (IBAction)addToQueueAndShow:(id)sender {
+    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert Title" message:@"This has come off the queue"];
+
+    [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+    [alert setDestructiveButtonWithTitle:@"Kill!" block:nil];
+    [alert addButtonWithTitle:@"Add another alert to queue" block:^{
+        [self addToQueueAndShow:nil];
+    }];
+    [[BlockAlertViewQueue instance] queueAndShow:alert];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -7,12 +7,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class BlockAlertView;
+
 
 @interface BlockAlertViewQueue : NSObject {
 
 }
 + (BlockAlertViewQueue *)instance;
 
+- (void)queueAndShow:(BlockAlertView *)blockAlertView;
 
-+ (void)queueAndShow:(BlockAlertView *)blockAlertView;
 @end

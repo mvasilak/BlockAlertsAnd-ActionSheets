@@ -19,6 +19,7 @@
 - (IBAction)arrivedBlog:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)showTextPrompt:(id)sender;
+- (IBAction)addToQueueAndShow:(id)sender;
 
 @property (retain, nonatomic) IBOutlet UITextField *testKeyboard;
 
