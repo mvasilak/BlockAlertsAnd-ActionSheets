@@ -5,6 +5,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BlockAlertViewDelegate
+    - (void)blockAlertViewDidDisappear:(id)sender;
+@end
+
 @interface BlockAlertView : NSObject {
 @protected
     UIView *_view;
@@ -27,5 +31,6 @@
 @property (nonatomic, retain) UIImage *backgroundImage;
 @property (nonatomic, readonly) UIView *view;
 @property (nonatomic, readwrite) BOOL vignetteBackground;
+@property (nonatomic, assign) id <BlockAlertViewDelegate> delegate;
 
 @end

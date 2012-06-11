@@ -13,6 +13,8 @@
 @synthesize view = _view;
 @synthesize backgroundImage = _backgroundImage;
 @synthesize vignetteBackground = _vignetteBackground;
+@synthesize delegate = _delegate;
+
 
 static UIImage *background = nil;
 static UIFont *titleFont = nil;
@@ -141,9 +143,6 @@ static UIFont *buttonFont = nil;
 
 - (void)show
 {
-    [BlockAlertViewQueue queueAndShow:self];
-
-
     BOOL isSecondButton = NO;
     NSUInteger index = 0;
     for (NSUInteger i = 0; i < _blocks.count; i++)
@@ -297,10 +296,6 @@ static UIFont *buttonFont = nil;
     [self retain];
 }
 
-- (void)queueAndShow {
-
-}
-
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated 
 {
     if (buttonIndex >= 0 && buttonIndex < [_blocks count])
@@ -336,6 +331,7 @@ static UIFont *buttonFont = nil;
                                                   [[BlockBackground sharedInstance] removeView:_view];
                                                   [_view release]; _view = nil;
                                                   [self autorelease];
+                                                  [[self delegate] blockAlertViewDidDisappear:self];
                                               }];
                          }];
     }
@@ -344,6 +340,7 @@ static UIFont *buttonFont = nil;
         [[BlockBackground sharedInstance] removeView:_view];
         [_view release]; _view = nil;
         [self autorelease];
+        [[self delegate] blockAlertViewDidDisappear:self];
     }
 }
 

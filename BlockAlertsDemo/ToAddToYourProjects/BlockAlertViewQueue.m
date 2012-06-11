@@ -13,13 +13,16 @@
      NSMutableArray *queuedAlerts;
 }
 
+- (void)blockAlertViewDidDisappear:(id)sender {
+    NSLog(@"Hit");
+}
+
 + (BlockAlertViewQueue *)instance {
     static BlockAlertViewQueue *_instance = nil;
 
     @synchronized (self) {
         if (_instance == nil) {
             _instance = [[self alloc] init];
-
         }
     }
 
@@ -27,12 +30,14 @@
 }
 
 - (void)queueAndShow:(BlockAlertView *)blockAlertView {
+    blockAlertView.delegate = self;
     [queuedAlerts addObject:blockAlertView];
     [blockAlertView show];
 }
 
 - (id)init {
     queuedAlerts = [[NSMutableArray alloc] init];
+
 }
 
 - (void)dealloc {

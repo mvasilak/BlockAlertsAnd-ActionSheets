@@ -6,11 +6,11 @@
 
 
 #import <Foundation/Foundation.h>
+#import "BlockAlertView.h"
 
 @class BlockAlertView;
 
-
-@interface BlockAlertViewQueue : NSObject {
+@interface BlockAlertViewQueue : NSObject <BlockAlertViewDelegate> {
 
 }
 + (BlockAlertViewQueue *)instance;
