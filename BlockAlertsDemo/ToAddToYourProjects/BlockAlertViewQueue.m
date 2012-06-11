@@ -1,20 +1,7 @@
-//
-// Created by stevenoleary on 10/06/2012.
-//
-// To change the template use AppCode | Preferences | File Templates.
-//
-
-
 #import "BlockAlertViewQueue.h"
-#import "BlockAlertView.h"
-
 
 @implementation BlockAlertViewQueue {
-     NSMutableArray *queuedAlerts;
-}
-
-- (void)blockAlertViewDidDisappear:(id)sender {
-    NSLog(@"Hit");
+    NSMutableArray *queuedAlerts;
 }
 
 + (BlockAlertViewQueue *)instance {
@@ -29,28 +16,35 @@
     return _instance;
 }
 
+- (void)blockAlertViewDidDisappear:(id)sender {
+
+    //remove this alert from the queue
+    [queuedAlerts removeObject:sender];
+
+    //NSLog(@"Alerts remaining: %d", [queuedAlerts count]);
+
+    if ([queuedAlerts count] > 0) {
+        BlockAlertView *headAlert = [queuedAlerts objectAtIndex:0];
+        [headAlert show];
+    }
+
+}
+
 - (void)queueAndShow:(BlockAlertView *)blockAlertView {
     blockAlertView.delegate = self;
-    [self enqueue:blockAlertView];
+
+    //if this is the first (and therefore only) alert on the queue then display immediately
+    if ([queuedAlerts count] == 0) {
+        [blockAlertView show];
+    }
+
+    [queuedAlerts addObject:blockAlertView];
+
+    //NSLog(@"Alerts on queue: %d", [queuedAlerts count]);
 }
 
 - (id)init {
     queuedAlerts = [[NSMutableArray alloc] init];
-}
-
-// Queues are first-in-first-out, so we remove objects from the head
-- (BlockAlertView *) dequeue {
-    if ([queuedAlerts count] == 0) return nil;
-    id headObject = [queuedAlerts objectAtIndex:0];
-    if (headObject != nil) {
-        [[headObject retain] autorelease]; // so it isn't dealloc'ed on remove
-        [queuedAlerts removeObjectAtIndex:0];
-    }
-    return headObject;
-}
-
-- (void) enqueue:(BlockAlertView *)blockAlertView {
-    [queuedAlerts addObject:blockAlertView];
 }
 
 - (void)dealloc {

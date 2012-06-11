@@ -145,14 +145,17 @@
 						<double key="IBUIContentEdgeInsets.left">0.0</double>
 						<double key="IBUIContentEdgeInsets.right">0.0</double>
 						<string key="IBUITitleShadowOffset">{0, -1}</string>
-						<string key="IBUINormalTitle">Queue and Show</string>
+						<string key="IBUINormalTitle">Queue Alerts</string>
 						<reference key="IBUIHighlightedTitleColor" ref="670373703"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC45MTMyNjUyOSAwLjg4NDU0OTAyIDAuNjAyMTI4MzkAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<reference key="IBUINormalBackgroundImage" ref="933515325"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="381733067">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">button_red.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -202,10 +205,7 @@
 						<reference key="IBUIHighlightedTitleColor" ref="670373703"/>
 						<reference key="IBUINormalTitleColor" ref="104255527"/>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="231851259">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">button_red.png</string>
-						</object>
+						<reference key="IBUINormalBackgroundImage" ref="381733067"/>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -230,7 +230,7 @@
 						<reference key="IBUIHighlightedTitleColor" ref="670373703"/>
 						<reference key="IBUINormalTitleColor" ref="104255527"/>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<reference key="IBUINormalBackgroundImage" ref="231851259"/>
+						<reference key="IBUINormalBackgroundImage" ref="381733067"/>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -258,7 +258,7 @@
 							<bytes key="NSRGB">MC45MTMyNjUyOSAwLjg4NDU0OTAyIDAuNjAyMTI4MzkAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<reference key="IBUINormalBackgroundImage" ref="231851259"/>
+						<reference key="IBUINormalBackgroundImage" ref="381733067"/>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -286,7 +286,7 @@
 							<bytes key="NSRGB">MC45MTMyNjUyOSAwLjg4NDU0OTAyIDAuNjAyMTI4MzkAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<reference key="IBUINormalBackgroundImage" ref="231851259"/>
+						<reference key="IBUINormalBackgroundImage" ref="381733067"/>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -314,7 +314,7 @@
 							<bytes key="NSRGB">MC45MTMyNjUyOSAwLjg4NDU0OTAyIDAuNjAyMTI4MzkAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<reference key="IBUINormalBackgroundImage" ref="231851259"/>
+						<reference key="IBUINormalBackgroundImage" ref="381733067"/>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -379,7 +379,7 @@
 							<bytes key="NSRGB">MC45MTMyNjUyOSAwLjg4NDU0OTAyIDAuNjAyMTI4MzkAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="137772984"/>
-						<reference key="IBUINormalBackgroundImage" ref="231851259"/>
+						<reference key="IBUINormalBackgroundImage" ref="381733067"/>
 						<reference key="IBUIFontDescription" ref="516573679"/>
 						<reference key="IBUIFont" ref="220889906"/>
 					</object>
@@ -503,12 +503,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">addToQueueAndShow:</string>
+						<string key="label">queueAlerts:</string>
 						<reference key="source" ref="366948080"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">37</int>
+					<int key="connectionID">38</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -634,7 +634,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">37</int>
+			<int key="maxID">38</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -642,10 +642,10 @@
 					<string key="className">BlockAlertsDemoViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addToQueueAndShow:">id</string>
 						<string key="arrivedBlog:">id</string>
 						<string key="dismissKeyboard:">id</string>
 						<string key="goNuts:">id</string>
+						<string key="queueAlerts:">id</string>
 						<string key="showActionSheet:">id</string>
 						<string key="showActionSheetPlusAlert:">id</string>
 						<string key="showAlert:">id</string>
@@ -654,10 +654,6 @@
 						<string key="whatsArrived:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="addToQueueAndShow:">
-							<string key="name">addToQueueAndShow:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="arrivedBlog:">
 							<string key="name">arrivedBlog:</string>
 							<string key="candidateClassName">id</string>
@@ -668,6 +664,10 @@
 						</object>
 						<object class="IBActionInfo" key="goNuts:">
 							<string key="name">goNuts:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="queueAlerts:">
+							<string key="name">queueAlerts:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showActionSheet:">

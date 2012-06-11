@@ -10,7 +10,6 @@
 #import "BlockAlertView.h"
 #import "BlockActionSheet.h"
 #import "BlockTextPromptAlertView.h"
-#import "BlockAlertViewQueue.h"
 
 @implementation BlockAlertsDemoViewController
 @synthesize testKeyboard;
@@ -84,6 +83,17 @@
      }
 }
 
+- (IBAction)queueAlerts:(id)sender {
+    for (int i = 1; i < 6; i++) {
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * i * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Queued Alert" message:[NSString stringWithFormat:@"This is alert %d", i]];
+            [alert setCancelButtonWithTitle:@"OK" block:nil];
+            [alert queueAndShow];
+        });
+    }
+}
+
 - (IBAction)showTextPrompt:(id)sender
 {
     UITextField *textField;
@@ -91,24 +101,12 @@
         [alert.textField resignFirstResponder];
         return YES;
     }];
-    
-    
+
     [alert setCancelButtonWithTitle:@"Cancel" block:nil];
     [alert addButtonWithTitle:@"Okay" block:^{
         NSLog(@"Text: %@", textField.text);
     }];
     [alert show];
-}
-
-- (IBAction)addToQueueAndShow:(id)sender {
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert Title" message:@"This has come off the queue"];
-
-    [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-    [alert setDestructiveButtonWithTitle:@"Kill!" block:nil];
-    [alert addButtonWithTitle:@"Add another alert to queue" block:^{
-        [self addToQueueAndShow:nil];
-    }];
-    [[BlockAlertViewQueue instance] queueAndShow:alert];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

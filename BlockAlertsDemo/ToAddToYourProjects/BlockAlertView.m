@@ -141,6 +141,10 @@ static UIFont *buttonFont = nil;
     [self addButtonWithTitle:title color:@"red" block:block];
 }
 
+- (void)queueAndShow {
+    [[BlockAlertViewQueue instance] queueAndShow:self];
+}
+
 - (void)show
 {
     BOOL isSecondButton = NO;
