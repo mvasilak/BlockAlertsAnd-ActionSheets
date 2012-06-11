@@ -31,13 +31,26 @@
 
 - (void)queueAndShow:(BlockAlertView *)blockAlertView {
     blockAlertView.delegate = self;
-    [queuedAlerts addObject:blockAlertView];
-    [blockAlertView show];
+    [self enqueue:blockAlertView];
 }
 
 - (id)init {
     queuedAlerts = [[NSMutableArray alloc] init];
+}
 
+// Queues are first-in-first-out, so we remove objects from the head
+- (BlockAlertView *) dequeue {
+    if ([queuedAlerts count] == 0) return nil;
+    id headObject = [queuedAlerts objectAtIndex:0];
+    if (headObject != nil) {
+        [[headObject retain] autorelease]; // so it isn't dealloc'ed on remove
+        [queuedAlerts removeObjectAtIndex:0];
+    }
+    return headObject;
+}
+
+- (void) enqueue:(BlockAlertView *)blockAlertView {
+    [queuedAlerts addObject:blockAlertView];
 }
 
 - (void)dealloc {
