@@ -44,7 +44,10 @@
 }
 
 - (id)init {
-    queuedAlerts = [[NSMutableArray alloc] init];
+    if ((self = [super init])) {
+        queuedAlerts = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
 
 - (void)dealloc {
